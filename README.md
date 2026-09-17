@@ -37,6 +37,15 @@ prisma/
 - Node.js 20+
 - PostgreSQL rodando localmente ou acessível via URL de conexão
 
+## Banco de Dados
+
+O projeto usa a mesma variável `DATABASE_URL` para os dois cenários:
+
+- Local: `DATABASE_URL` aponta para o Postgres do Docker Compose (`localhost:5432`).
+- Nuvem: `DATABASE_URL` aponta para o Postgres gerenciado no deploy, usando a URL do Neon informada na issue.
+
+O Prisma já lê essa variável diretamente, então não é preciso alterar o código para trocar de ambiente; basta ajustar o valor no arquivo `.env` local ou nas variáveis do provedor de deploy.
+
 ## Como rodar
 
 1. Instale as dependências:
