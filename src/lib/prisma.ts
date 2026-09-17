@@ -1,3 +1,4 @@
+import './env';
 import { PrismaClient } from '@prisma/client';
 
 // Evita múltiplas instâncias do PrismaClient em ambiente de desenvolvimento
