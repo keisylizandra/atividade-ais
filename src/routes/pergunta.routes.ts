@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import { PerguntaController } from '../controllers/pergunta.controller'; // Ajuste o caminho conforme a estrutura do seu projeto
+import { PerguntaController } from '@/controllers/pergunta.controller';
 
 const perguntaRoutes = Router();
 
 // POST /perguntas - Cria uma nova pergunta
 perguntaRoutes.post('/', PerguntaController.create);
+perguntaRoutes.put('/:id', PerguntaController.update);
 
 export default perguntaRoutes;
