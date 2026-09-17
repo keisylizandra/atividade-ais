@@ -44,27 +44,32 @@ prisma/
    npm install
    ```
 
-2. Copie o `.env.example` para `.env` e ajuste a `DATABASE_URL`:
+2. Copie o `.env.example` para `.env` e ajuste as variáveis se necessário:
    ```bash
    cp .env.example .env
    ```
 
-3. Gere o Prisma Client:
+3. Suba o PostgreSQL de desenvolvimento via Docker Compose:
+   ```bash
+   docker compose -f docker-compose.dev.yml up -d
+   ```
+
+4. Gere o Prisma Client:
    ```bash
    npm run prisma:generate
    ```
 
-4. (Quando houver models) Rode as migrations:
+5. (Quando houver models) Rode as migrations:
    ```bash
    npm run prisma:migrate
    ```
 
-5. Suba o servidor em modo desenvolvimento:
+6. Suba o servidor em modo desenvolvimento:
    ```bash
    npm run dev
    ```
 
-6. Teste o health check:
+7. Teste o health check:
    ```bash
    curl http://localhost:3000/health
    ```
