@@ -39,12 +39,12 @@ prisma/
 
 ## Banco de Dados
 
-O projeto usa a mesma variável `DATABASE_URL` para os dois cenários:
+O projeto usa `DATABASE_URL` no desenvolvimento local e `DATABASE_URL_REMOTE` no deploy em nuvem.
 
 - Local: `DATABASE_URL` aponta para o Postgres do Docker Compose (`localhost:5432`).
-- Nuvem: `DATABASE_URL` aponta para o Postgres gerenciado no deploy, usando a URL do Neon informada na issue.
+- Nuvem: `DATABASE_URL_REMOTE` aponta para o Postgres gerenciado no deploy, usando a URL do Neon informada na issue.
 
-O Prisma já lê essa variável diretamente, então não é preciso alterar o código para trocar de ambiente; basta ajustar o valor no arquivo `.env` local ou nas variáveis do provedor de deploy.
+O app define `DATABASE_URL` automaticamente em produção a partir de `DATABASE_URL_REMOTE`, então o Prisma continua lendo a mesma variável sem precisar de mudança no código de acesso.
 
 ## Como rodar
 
